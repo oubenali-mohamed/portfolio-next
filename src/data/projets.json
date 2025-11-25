@@ -1,0 +1,89 @@
+[
+  {
+    "id": "1",
+    "title": "Reservia",
+    "picture": "/assets/Reservia.png",
+    "description": "Site web d'hébergement immobilier en HTML et CSS, à partir d'une maquette",
+    "link": "https://oubenali-mohamed.github.io/oubenali_2_16092020/",
+    "techno": ["/assets/html.png", "/assets/css.png"]
+  },
+  {
+    "id": "2",
+    "title": "OhMyFood",
+    "picture": "/assets/OhMyFood.png",
+    "description": "Site web d'un restaurant en HTML, CSS et Sass ajouter des animations",
+    "link": "https://oubenali-mohamed.github.io/oubenali_3_31102020/",
+    "techno": ["/assets/html.png", "/assets/css.png", "/assets/sass.png"]
+  },
+  {
+    "id": "3",
+    "title": "Chouette Agence",
+    "picture": "/assets/agence_web.png",
+    "description": " Référencement SEO d'un site web déja existante ",
+    "link": "https://oubenali-mohamed.github.io/oubenali_4_16122020/",
+    "techno": ["/assets/html.png", "/assets/css.png", "/assets/seo.png"]
+  },
+  {
+    "id": "4",
+    "title": "Fisheye",
+    "picture": "/assets/Fisheye.png",
+    "description": "Site de photographes en HTML,CSS et JavaScript",
+    "link": "https://oubenali-mohamed.github.io/Fisheye_P6/",
+    "techno": ["/assets/html.png", "/assets/css.png", "/assets/javascript.png"]
+  },
+  {
+    "id": "5",
+    "title": "Kasa",
+    "picture": "/assets/kasa.png",
+    "description": "Site de location d'appartement en utilisant React Js",
+    "link": "https://oubenali-mohamed.github.io/kasa_p11/",
+    "techno": [
+      "/assets/html.png",
+      "/assets/css.png",
+      "/assets/javascript.png",
+      "/assets/react.png"
+    ]
+  },
+  {
+    "id": "6",
+    "title": "WpConcept",
+    "picture": "/assets/acsw.png",
+    "description": "Site d'une agence web crée avec Wordpress",
+    "link": "https://www.wpconcept.fr/",
+    "techno": ["/assets/wordpress.png"]
+  },
+  {
+    "id": "7",
+    "title": "Learn_Home",
+    "picture": "/assets/Learn_Home.png",
+    "description": "Maquette sur Figma pour un groupe scolaire",
+    "link": "https://www.figma.com/file/JB4Sp6fEWE98d6JpLdbARS/lear%40Home?type=design&node-id=0-1&mode=design",
+    "techno": ["/assets/figma.png"]
+  },
+  {
+    "id": "8",
+    "title": "SportSee",
+    "picture": "/assets/SportSee.png",
+    "description": "Tableau de bord d'un utilisateur pour suivre ses sessions ",
+    "link": "https://github.com/oubenali-mohamed/SportSee_p12",
+    "techno": [
+      "/assets/html.png",
+      "/assets/css.png",
+      "/assets/javascript.png",
+      "/assets/react.png"
+    ]
+  },
+  {
+    "id": "9",
+    "title": "HrNet",
+    "picture": "/assets/HrNet.png",
+    "description": "Faire passer une librairie jQuery vers React pour améliorer les performances",
+    "link": "https://github.com/oubenali-mohamed/P_14_hrnet",
+    "techno": [
+      "/assets/html.png",
+      "/assets/css.png",
+      "/assets/javascript.png",
+      "/assets/react.png"
+    ]
+  }
+]
