@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { sendContact } from './actions'
 import { contactSchema } from './contact-schema'
-
+import emailjs from '@emailjs/browser'
 export default function Contact() {
   const [success, setSuccess] = useState(false)
   const [serverErrors, setServerErrors] = useState({})
@@ -21,24 +21,35 @@ export default function Contact() {
   })
 
   async function onSubmit(data) {
+    console.log('📤 Données envoyées :', data)
+
     setIsSubmitting(true)
     setSuccess(false)
-    setServerErrors({})
 
-    // Convertit data → FormData pour la server action
-    const formData = new FormData()
-    Object.entries(data).forEach(([key, value]) => formData.append(key, value))
+    try {
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          name: data.name,
+          firstname: data.firstname,
+          email: data.email,
+          subject: data.subject,
+          message: data.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      )
 
-    const result = await sendContact(formData)
-    setIsSubmitting(false)
+      console.log('📨 EmailJS response :', response)
 
-    if (!result.success) {
-      setServerErrors(result.errors)
-      return
+      setSuccess(true)
+      reset()
+    } catch (error) {
+      console.error('❌ Erreur EmailJS :', error)
+      alert('Une erreur est survenue. Merci de réessayer.')
     }
 
-    setSuccess(true)
-    reset()
+    setIsSubmitting(false)
   }
 
   return (
@@ -220,7 +231,7 @@ export default function Contact() {
         {/* SUCCESS */}
         {success && (
           <div className="mb-6 mt-6 p-4 rounded-xl bg-green-900 text-green-400 font-semibold text-center border border-green-500/40">
-             ✅ Message envoyé avec succès !
+            ✅ Message envoyé avec succès !
           </div>
         )}
       </form>
