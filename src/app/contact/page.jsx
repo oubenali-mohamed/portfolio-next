@@ -3,9 +3,8 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { sendContact } from './actions'
 import { contactSchema } from './contact-schema'
-import emailjs from '@emailjs/browser'
+import { sendEmail } from './sendEmail'
 export default function Contact() {
   const [success, setSuccess] = useState(false)
   const [serverErrors, setServerErrors] = useState({})
@@ -21,34 +20,19 @@ export default function Contact() {
   })
 
   async function onSubmit(data) {
-    console.log('📤 Données envoyées :', data)
-
     setIsSubmitting(true)
     setSuccess(false)
 
-    try {
-      const response = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-        {
-          name: data.name,
-          firstname: data.firstname,
-          email: data.email,
-          subject: data.subject,
-          message: data.message,
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      )
+    const response = await sendEmail(data)
 
-      console.log('📨 EmailJS response :', response)
-
-      setSuccess(true)
-      reset()
-    } catch (error) {
-      console.error('❌ Erreur EmailJS :', error)
-      alert('Une erreur est survenue. Merci de réessayer.')
+    if (!response.success) {
+      alert('Erreur lors de l’envoi du message.')
+      setIsSubmitting(false)
+      return
     }
 
+    setSuccess(true)
+    reset()
     setIsSubmitting(false)
   }
 
