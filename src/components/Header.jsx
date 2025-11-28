@@ -20,20 +20,17 @@ export default function Header() {
 
   // Initialisation du thème (localStorage > système)
   useEffect(() => {
-    const stored = localStorage.getItem('theme')
-    const preferesDark = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches
-    const initialTheme = stored || (preferesDark ? 'dark' : 'light')
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setTheme(initialTheme)
-  }, [])
+  const isDark = document.documentElement.classList.contains('dark')
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  setTheme(isDark ? 'dark' : 'light')
+}, [])
+
 
   // Toggle theme
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
     setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
+
     document.documentElement.classList.toggle('dark', newTheme === 'dark')
   }
 

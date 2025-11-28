@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { contactSchema } from './contact-schema'
-import { sendEmail } from './sendEmail'
+import { sendContactEmail  } from './sendContactEmail'
 export default function Contact() {
   const [success, setSuccess] = useState(false)
   const [serverErrors, setServerErrors] = useState({})
@@ -23,7 +23,7 @@ export default function Contact() {
     setIsSubmitting(true)
     setSuccess(false)
 
-    const response = await sendEmail(data)
+    const response = await sendContactEmail(data)
 
     if (!response.success) {
       alert('Erreur lors de l’envoi du message.')

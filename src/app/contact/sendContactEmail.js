@@ -2,7 +2,7 @@
 
 import nodemailer from 'nodemailer'
 
-export async function sendEmail(data) {
+export async function sendContactEmail(data) {
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
@@ -17,7 +17,7 @@ export async function sendEmail(data) {
     const mailOptions = {
       from: `"${data.name}" <${process.env.MAIL_USER}>`,
       to: process.env.MAIL_TO,
-      subject: `📩 Nouveau message : ${data.subject}`,
+      subject: `${data.subject}`,
       text: `
 Nom : ${data.name}
 Prénom : ${data.firstname}

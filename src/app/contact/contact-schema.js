@@ -9,7 +9,7 @@ export const contactSchema = z.object({
     .string()
     .min(1, 'Le prénom est obligatoire.')
     .min(3, 'Le prénom doit contenir au moins 3 caractères.'),
-  email: z.string().email('Email invalide.'),
+  email: z.email('Email invalide.'),
   subject: z
     .string()
     .min(1, 'Le sujet est obligatoire.')
