@@ -10,6 +10,7 @@ import { HiMenu, HiX } from 'react-icons/hi'
 const NAV_ITEMS = [
   { label: 'Accueil', href: '/' },
   { label: 'Projets', href: '/projets' },
+  { label: 'A Propos', href: '/apropos' },
   { label: 'Contact', href: '/contact' },
   { label: 'Blog', href: '/blog' },
 ]
@@ -20,11 +21,10 @@ export default function Header() {
 
   // Initialisation du thème (localStorage > système)
   useEffect(() => {
-  const isDark = document.documentElement.classList.contains('dark')
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  setTheme(isDark ? 'dark' : 'light')
-}, [])
-
+    const isDark = document.documentElement.classList.contains('dark')
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTheme(isDark ? 'dark' : 'light')
+  }, [])
 
   // Toggle theme
   const toggleTheme = () => {
